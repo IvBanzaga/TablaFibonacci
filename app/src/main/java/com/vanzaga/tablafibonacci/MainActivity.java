@@ -17,24 +17,21 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
+        // Inicializamos las vistas
         txt_tabla = findViewById(R.id.textView);
         txt_num = findViewById(R.id.txt_num);
     }
 
     public void calcular(View view) {
         // Rescatamos el número introducido por el usuario
-        String input = txt_num.getText().toString();
-        if (input.isEmpty()) {
-            txt_tabla.setText("Por favor, introduce un número.");
-            return;
-        }
+        int MAX = Integer.parseInt(txt_num.getText().toString());
 
-        // Convertimos el texto a un número entero
-        int MAX = Integer.parseInt(input);
         if (MAX < 1) {
             txt_tabla.setText("Por favor, introduce un número mayor que 0.");
             return;
         }
+
 
         // Utilizamos la clase Fibonacci para calcular la secuencia
         int[] fibonacciSequence = Fibonacci.calculateFibonacci(MAX);
@@ -45,12 +42,10 @@ public class MainActivity extends AppCompatActivity {
 
 
         StringBuilder result = new StringBuilder();
-        for (int i = 0; i < fibonacciSequence.length; i++) {
-            result.append(fibonacciSequence[i]);
-            if (i < fibonacciSequence.length - 1) {
-                result.append("-");
-            }
+        for (int num : fibonacciSequence) {
+            result.append(num).append(" ");
         }
+
         txt_tabla.setText(result.toString());
     }
 }
