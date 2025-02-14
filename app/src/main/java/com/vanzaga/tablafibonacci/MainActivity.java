@@ -22,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void calcular(View view) {
-
         // Rescatamos el número introducido por el usuario
         String input = txt_num.getText().toString();
         if (input.isEmpty()) {
@@ -37,30 +36,21 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
-        StringBuilder resultado = new StringBuilder();
-        int num1 = 0;
-        int num2 = 1;
+        // Utilizamos la clase Fibonacci para calcular la secuencia
+        int[] fibonacciSequence = Fibonacci.calculateFibonacci(MAX);
 
-        // Imprime los dos primeros números y los añadimos al resultado
-        resultado.append(num1).append("-").append(num2).append("-");
+        // Mostramos la secuencia en el TextView
+        // StringBuilder se puede guardar en un archivo
+        // se puede guardar en un archivo, de la siguiente forma:
 
-        // Bucle para generar la serie Fibonacci , i = 2 por que ya tenemos los dos primeros números
-        for (int i = 2; i < MAX; i++) {
 
-            // Calculamos el siguiente número
-            int fibonacci = num1 + num2;
-
-            // Y lo añadimos al resultado
-            resultado.append(fibonacci).append("-");
-
-            // Acualizamos los números
-            num1 = num2;
-            num2 = fibonacci;
+        StringBuilder result = new StringBuilder();
+        for (int i = 0; i < fibonacciSequence.length; i++) {
+            result.append(fibonacciSequence[i]);
+            if (i < fibonacciSequence.length - 1) {
+                result.append("-");
+            }
         }
-
-        // Mostramos el resultado en el TextView, lo mostramos con un guion en medio
-        txt_tabla.setText(resultado.toString());
-
-
+        txt_tabla.setText(result.toString());
     }
 }
