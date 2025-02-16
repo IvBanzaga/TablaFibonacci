@@ -3,7 +3,7 @@
 <br>
 <h1 align="center">
   <p>
-    <img src="https://github.com/IvBanzaga/Fibonacci/blob/master/img/captura.png" alt="Android Studio"/>
+    <img src="https://github.com/IvBanzaga/TablaFibonacci/blob/master/img/captura.png" alt="Android Studio"/>
   </p>
 </h1>
 <br>
